@@ -1,0 +1,3 @@
+let and const is block scoping
+var is function scoping
+syntheticEvent
