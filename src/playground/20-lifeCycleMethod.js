@@ -6,33 +6,17 @@ class IndecisionApp extends React.Component {
         this.handleAddOption = this.handleAddOption.bind(this)
         this.handleDeleteOption = this.handleDeleteOption.bind(this)
         this.state = {
-            options: []     //props.options
+            options: props.options
         }
     }
 
     // =======================Life Cycle Methods /\ stateless function doesnt have any life cycle methods
     componentDidMount() {                                       // it fires when the component first get mounted to the dom --> Only access in class base component -> this one of the reason that stateless func is so fast
         console.log('fetching data')
-        try {
-            const json = localStorage.getItem('options')
-            const options = JSON.parse(json)
-            if (options) {
-                this.setState(() => {
-                    return ({options})
-                })
-            }
-        } catch (e) {
-            // Do nothing at all
-        }
-        
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.options.length !== this.state.options.length) {
-            console.log('saving data');                       // Fire after the component update -> after the state or props value changes
-            const json = JSON.stringify(this.state.options)
-            localStorage.setItem('options', json)
-        }
+        console.log('saving data')                       // Fire after the component update -> after the state or props value changes
         // have access to this.props or this.state
     }
 
@@ -84,9 +68,9 @@ class IndecisionApp extends React.Component {
     }
 }
 
-// IndecisionApp.defaultProps = {                  // because we add localStorage we dont need it
-//     options: []
-// }
+IndecisionApp.defaultProps = {
+    options: []
+}
 // class Header extends React.Component {
 //     render() {
 //         return (
@@ -157,7 +141,7 @@ const Options = (props) => {
         <div>
             {/*<button onClick={this.handleRemoveAll.bind(this)}>Remove All</button>*/}
             <button onClick={props.handleDeleteOptions}>Remove All</button>
-            {props.options.length>0 ? <p>Options component here</p> : <p>Please add an option to get started!</p>}
+            {props.options.length>0 ? <p>Options component here</p> : <p>No option</p>}
             {props.options.map((option) => <Option key={option} optionText={option} handleDeleteOption={props.handleDeleteOption}/>)}
         </div>
     );
@@ -221,4 +205,4 @@ const User = (props) => {
     )
 }
 
-ReactDOM.render(<IndecisionApp />, document.getElementById('app'))
+ReactDOM.render(<IndecisionApp options={['opt 1', ['opt 2']]}/>, document.getElementById('app'))
