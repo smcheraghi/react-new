@@ -1,3 +1,21 @@
+add babel es6/es7 extension to vs
+add Path Intellisense
+
+live-server public
+babel src/app.js --out-file=public/scripts/app.js --presets="env,react" --watch
 let and const is block scoping
 var is function scoping
 syntheticEvent
+webpack --> organize javascript code/it provide babel for us
+webpack config:
+    yarn add webpack
+    add webpack.config.js in root
+    add script to package.json
+    yarn run build
+    bundle.js created in public folder
+    delete folder scripts
+    delete scripts line in index.html and add --> <script src="bundle.js"></script>
+    add loader to webpack -> to customize the webpack -> anytime see json file do something --> without babel we need to do it --> yarn add babel-core -->allow to run babel from tools like webpack
+    yarn add babel-loader -->webpack plugin -> teach webpack to run babel
+    add module in webpack.config.js --> rules
+    add a file called .babelrc in the root -> allow us to take all of the arguments pass to the commend line
