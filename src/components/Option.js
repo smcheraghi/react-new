@@ -13,9 +13,9 @@ import Options from './Options'
 
 const Option = (props) => {
     return (
-        <div>
-            {props.optionText}
-            <button onClick={(e) => {
+        <div className="option">
+            <p className="option__text">{props.count}. {props.optionText}</p>            
+            <button className="button button--link" onClick={(e) => {
                 props.handleDeleteOption(props.optionText)
             }}>Remove</button>
         </div>

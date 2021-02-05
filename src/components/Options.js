@@ -24,10 +24,14 @@ import Option from './Option'
 const Options = (props) => {
     return (
         <div>
-            {/*<button onClick={this.handleRemoveAll.bind(this)}>Remove All</button>*/}
-            <button onClick={props.handleDeleteOptions}>Remove All</button>
-            {props.options.length>0 ? <p>Options component here</p> : <p>Please add an option to get started!</p>}
-            {props.options.map((option) => <Option key={option} optionText={option} handleDeleteOption={props.handleDeleteOption}/>)}
+            <div className="widget-header">
+                <h3 className="widget-header__title">Your options</h3>
+                {/*<button onClick={this.handleRemoveAll.bind(this)}>Remove All</button>*/}
+                <button className="button button--link" onClick={props.handleDeleteOptions}>Remove All</button>
+            </div>
+           
+            {props.options.length>0 ? <p className="widget__message">Options component here</p> : <p className="widget__message">Please add an option to get started!</p>}
+            {props.options.map((option, index) => <Option key={option} optionText={option} count={index + 1} handleDeleteOption={props.handleDeleteOption}/>)}
         </div>
     );
 }

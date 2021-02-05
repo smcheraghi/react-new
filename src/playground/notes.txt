@@ -19,3 +19,22 @@ webpack config:
     yarn add babel-loader -->webpack plugin -> teach webpack to run babel
     add module in webpack.config.js --> rules
     add a file called .babelrc in the root -> allow us to take all of the arguments pass to the commend line
+
+after addidng wbpack devserver add some line and delete these lines:
+    // "build": "webpack --watch",
+    // "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=\"env,react\" --watch"
+
+reactjs/react-modal git
+yarn add style-loader and css-loader for css files 
+https://sass-lang.com/ --> use to conver scss to css
+yarn add sass-loader and node-sass
+
+for scss -> partila files start with _
+
+Normalize.css --> to start the browser from default
+
+
+
+http://budget-app.mead.io
+http://links.mead.io/budget-app
+
